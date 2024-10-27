@@ -354,3 +354,57 @@ propagating upwards in the DOM hierarchy.
 // console.log(3 > 2 > 1) // false (3 > 2 is true. Now, since we have > operator true will be converted to 1. 1 > 1 is false)
 
 /** ================ */
+// let x;
+// function func() {
+//     console.log(x); // undefined
+//     x = 20;
+//     console.log(x); // 20
+// }
+// func();
+
+/** ================ */
+
+// const arr = [2,3,4,5];
+// // Add 1 in the 0th index of the array
+
+// const newArr = [1, ...arr]; // creates a new array
+// const newArr1 = arr.map((ele) => Number('1'+ele));
+// arr.unshift(1); // 
+
+// console.log(newArr) // [1, 2, 3, 4, 5]
+// console.log(newArr1) // [12, 13, 14, 15]
+// console.log(arr) // [1, 2, 3, 4, 5]
+
+// The unshift() method of Array instances adds the specified elements to the beginning of an array and returns the new length of the array.
+
+/** ================ */
+
+//Write a program to check if palindrome
+
+// const checkPalindrome = (checkWord) => {
+//     let reversed = checkWord.split('').reverse().join('')
+//     // var reversed = '';
+//     // for(let i = checkWord.length - 1; i >=0; i--) {
+//     //     reversed +=checkWord[i]
+//     // }
+//     return checkWord == reversed;
+// }
+
+// const word = 'malayalam';
+// console.log(` ${word} is ${checkPalindrome(word) ? 'palindrome': 'not palindrome'} `);
+
+/** ================ */
+
+const x = 10;
+function myFunction() {
+  var x = 20; // shadowing occurs here
+  console.log(x); // outputs 20
+}
+
+if(true) {
+    const x = 30;
+    console.log(x);
+}
+
+console.log(x); // outputs 10
+myFunction();
