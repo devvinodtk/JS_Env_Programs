@@ -20,8 +20,8 @@ let newObj = {
 
 let printName = {
     name: 'Tony',
-    sayHello: function(time) {
-        console.log(`Hello ${this.name} Good ${time}`);
+    sayHello: function(time, place = "Bangalore") {
+        console.log(`Hello ${this.name} Good ${time} and welcome to ${place}`);
     }
 }
 
@@ -34,7 +34,7 @@ Object.prototype.myBind = function(myObj, ...args) {
     }
 }
 
-let HiFunc1 = printName.sayHello.myBind(newObj, 'Morning');
+let HiFunc1 = printName.sayHello.myBind(newObj, 'Morning', 'Delhi');
 HiFunc1();
 
 /** ====== call Polyfill ========  */
@@ -44,7 +44,7 @@ Object.prototype.myCall = function(myObj, ...args) {
     myObj.myMethod(...args)
 }
 
-printName.sayHello.myCall(newObj, 'After Noon');
+// printName.sayHello.myCall(newObj, 'After Noon');
 
 /** ====== call Polyfill ========  */
 
@@ -53,4 +53,4 @@ Object.prototype.myApply = function(myObj, ...args) {
     myObj.myMethod(...args)
 }
 
-printName.sayHello.myApply(newObj, ['Evening']);
+// printName.sayHello.myApply(newObj, ['Evening']);

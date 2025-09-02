@@ -1,5 +1,7 @@
 const arr = [1,2,3,4,5];
 
+//-------------- Array.prototype.filter() --------------//
+
 const newArray = arr.filter((el) => el > 3)
 console.log(newArray);
 
@@ -15,7 +17,7 @@ Array.prototype.myFilter = function (cb) {
 const newArray1 = arr.myFilter((el)=> el > 3);
 console.log(newArray1);
 
-//--------------
+//-------------- Array.prototype.reduce() --------------//
 
 const sum = arr.reduce((acc, val)=> acc + val, 0);
 console.log(sum)
@@ -30,3 +32,17 @@ Array.prototype.myReduce = function(cb, initialValue) {
 
 const sum1 = arr.myReduce((acc, val)=> acc + val, 0);
 console.log(sum1)
+
+
+//-------------- Array.prototype.reduce() --------------//
+
+Array.prototype.filterWithMyReduce = function(cb) {
+    return this.myReduce((currArr, currEl)=> {
+        if(cb(currEl))
+            currArr.push(currEl)
+        return currArr;
+    }, [])
+}
+
+const newArray2 = arr.filterWithMyReduce((el)=> el > 2);
+console.log(newArray2);

@@ -1,0 +1,26 @@
+const findUniqueChars = (str) => {
+    const charFreq = {}
+    const result = []
+
+    for(const char of str) {
+        charFreq[char] = (charFreq[char] ?? 0) + 1
+    }
+    for(const char of str) { 
+        if(charFreq[char] === 1)    
+            result.push(char)
+    }
+    return result;
+}
+
+const result = findUniqueChars("hello how are you?")
+console.log(result)
+
+//-------------- logCalls method --------------//
+
+function logCalls(fn) {
+    return (...args) => {
+        console.log(`Calling function: ${fn.name || "Anonymous"}()`);
+
+        return fn(...args);
+    }
+}

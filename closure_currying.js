@@ -9,7 +9,7 @@ function sum(a){
     }
 }
 
-console.log('sum is => '+sum(6)(5)(4));
+// console.log('sum is => '+sum(6)(5)(4));
 
 function evaluate(operation) {
     return function(a) {
@@ -30,10 +30,10 @@ function evaluate(operation) {
     }
 }
 
-console.log('evaluated sum => ', evaluate('sum')(4)(2))
-console.log('evaluated multiply => ', evaluate('multiply')(4)(2))
-console.log('evaluated subtract => ', evaluate('subtract')(4)(2))
-console.log('evaluated divide => ', evaluate('divide')(4)(2))
+// console.log('evaluated sum => ', evaluate('sum')(4)(2))
+// console.log('evaluated multiply => ', evaluate('multiply')(4)(2))
+// console.log('evaluated subtract => ', evaluate('subtract')(4)(2))
+// console.log('evaluated divide => ', evaluate('divide')(4)(2))
 
 
 //Infinate currying 
@@ -45,7 +45,15 @@ function add(a) {
     }
 }
 
-console.log('Infinate currying => ', add(2)(3)(4)())
+// console.log('Infinate currying => ', add(2)(3)(4)())
+
+
+// Infinite currying arrow function
+const sumInfinite = (a) => (b) => (b) ? sumInfinite (a + b) : a;
+
+console.log(sumInfinite(1)(2)(3)(4)());
+
+
 
 function curry(func) {
     return function curriedFunc(...args) {
@@ -63,4 +71,4 @@ const currySum = (a, b, c, d) => a + b + c + d;
 
 const totalSum = curry(currySum)
 
-console.log('totalSum =>', totalSum(1)(2)(3)(4));
+// console.log('totalSum =>', totalSum(1)(2)(3)(4));
